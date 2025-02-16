@@ -1,8 +1,8 @@
 from flask import Flask, request, Response
 from db import db
 from ma import ma
+from flask_cors import CORS
 
-# from flask_cors import CORS
 from handlers import book as book_handler
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///books.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["PROPAGATE_EXCEPTIONS"] = True
-# CORS(app)
+CORS(app)
 
 ma.init_app(app)
 db.init_app(app)
