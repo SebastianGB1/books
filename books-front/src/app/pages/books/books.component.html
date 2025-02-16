@@ -1,9 +1,28 @@
-<h1>Books</h1>
+<div class="container">
 
-<header>
-    <button>Add book</button>
-</header>
+    <h1>Books</h1>
 
-<table>
-    
-</table>
+    <div class="table-header">
+        <button class="btn-green">Add book</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Read?</th>
+            <th> </th>
+        </tr>
+        @for (book of books; track $index) {
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.read}}</td>
+            <td>
+                <button class="btn-blue">Update</button>
+                <button class="btn-red">Delete</button>
+            </td>
+        </tr>
+        }
+    </table>
+</div>

@@ -15,4 +15,13 @@ export class BooksService {
   fetchBooks():Observable<Book[]> {
     return this.http.get<Book[]>(this.url)
   }
+  addBook(book: Book):Observable<Book> {
+    return this.http.post<Book>(this.url, book)
+  }
+  deleteBook(book: Book):Observable<Book> {
+    return this.http.delete<Book>(this.url + "/" + book.id)
+  }
+  updateBook(book: Book):Observable<Book> {
+    return this.http.put<Book>(this.url + "/" + book.id, book)
+  }
 }
