@@ -4,6 +4,7 @@ from ma import ma
 from flask_cors import CORS
 
 from handlers import book as book_handler
+from utils.form_exception import FormException
 
 app = Flask(__name__)
 
@@ -33,7 +34,7 @@ def get_books():
     try:
         return book_handler.get_all()
     except Exception as e:
-        return Response(str(e), status=400)
+        return Response(FormException(str(e)).json(), status=400)
 
 
 @app.route("/api/books", methods=["POST"])
@@ -43,14 +44,14 @@ def create_book():
         book_handler.create(body=book)
         return Response(status=201)
     except Exception as e:
-        return Response(str(e), status=400)
+        return Response(FormException(str(e)).json(), status=400)
 
 @app.route("/api/books/<string:id>", methods=["DELETE"])
 def delete_book(id):
     try:
         return book_handler.delete(id)
     except Exception as e:
-        return Response(str(e), status=400)
+        return Response(FormException(str(e)).json(), status=400)
 
 @app.route("/api/books/<string:id>", methods=["PUT"])
 def update_book(id):
@@ -58,7 +59,7 @@ def update_book(id):
         book = request.get_json()
         return book_handler.update(id, body=book)
     except Exception as e:
-        return Response(str(e), status=400)
+        return Response(FormException(str(e)).json(), status=400)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)

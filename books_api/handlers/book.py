@@ -4,6 +4,7 @@ from repositories.book_repo import BookRepo
 
 bookRepo = BookRepo()
 bookSchema = BookSchema()
+bookCreateSchema = BookSchema(only=("title", "author", "read"))
 bookListSchema = BookSchema(many=True)
 bookUpdateSchema = BookSchema(only=("title", "author", "read"), partial=True)
 
