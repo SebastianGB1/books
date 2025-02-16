@@ -17,10 +17,10 @@
         <tr>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
-            <td>{{book.read}}</td>
+            <td>{{book.read ? "Yes": "No"}}</td>
             <td>
                 <button class="btn-blue">Update</button>
-                <button class="btn-red">Delete</button>
+                <button class="btn-red" (click)="deleteBook(book)">Delete</button>
             </td>
         </tr>
         }
