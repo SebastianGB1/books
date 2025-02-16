@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    font-family: Arial, sans-serif;
+}
+.btn-blue{
+    background-color: #3498db;
+    color: white;
+}
+.btn-blue:hover{
+    background-color: #2980b9;
+}
+
+.btn-red{
+    background-color: #e74c3c;
+    color: white;
+}
+.btn-red:hover{
+    background-color: #c0392b;
+}
+.btn-green {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #219150;
+}
+
+button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}

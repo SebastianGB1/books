@@ -16,12 +16,14 @@ export class BooksService {
     return this.http.get<Book[]>(this.url)
   }
   addBook(book: Book):Observable<Book> {
-    return this.http.post<Book>(this.url, book)
+    const {id, ...newBook} = book
+    return this.http.post<Book>(this.url, newBook)
   }
   deleteBook(book: Book):Observable<Book> {
     return this.http.delete<Book>(this.url + "/" + book.id)
   }
   updateBook(book: Book):Observable<Book> {
-    return this.http.put<Book>(this.url + "/" + book.id, book)
+    const {id, ...newBook} = book
+    return this.http.put<Book>(this.url + "/" + book.id, newBook)
   }
 }

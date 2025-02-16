@@ -3,7 +3,7 @@
     <h1>Books</h1>
 
     <div class="table-header">
-        <button class="btn-green">Add book</button>
+        <button class="btn-green" (click)="openNew()">Add book</button>
     </div>
 
     <table>
@@ -19,10 +19,11 @@
             <td>{{book.author}}</td>
             <td>{{book.read ? "Yes": "No"}}</td>
             <td>
-                <button class="btn-blue">Update</button>
+                <button class="btn-blue" (click)="openEdit(book)">Update</button>
                 <button class="btn-red" (click)="deleteBook(book)">Delete</button>
             </td>
         </tr>
         }
     </table>
 </div>
+<app-modal [book]="actualBook" [isOpen]="showDialog" (close)="closeDialog()" (onAccept)="modalAccept($event)"/>
