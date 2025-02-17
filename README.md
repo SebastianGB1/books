@@ -2,6 +2,12 @@
 
 This project contains a backend application (Flask), a frontend application (Angular), and a MySQL database, all orchestrated using Docker Compose.
 
+## Live Demo
+
+You can try the live demo of the application by clicking the following link:
+
+[Live Demo](http://129.146.172.208:8080)
+
 ## Prerequisites
 
 Before running the application, ensure that you have the following installed:
