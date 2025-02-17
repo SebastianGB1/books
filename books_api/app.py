@@ -4,6 +4,7 @@ from ma import ma
 from flask_cors import CORS
 
 from handlers import book as book_handler
+from mock_data import create_data_if_not_exists
 from utils.form_exception import FormException
 
 app = Flask(__name__)
@@ -17,6 +18,7 @@ ma.init_app(app)
 db.init_app(app)
 with app.app_context():
     db.create_all()
+    create_data_if_not_exists(db)
 
 
 @app.route("/api/books")
