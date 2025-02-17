@@ -8,7 +8,7 @@ from utils.form_exception import FormException
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///books.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:admin@db:3306/books"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["PROPAGATE_EXCEPTIONS"] = True
 CORS(app)
@@ -17,16 +17,6 @@ ma.init_app(app)
 db.init_app(app)
 with app.app_context():
     db.create_all()
-    #Create initial books
-    # book_handler.create(
-    #     body={"title": "'On the Road", "author": "Jack Kerouac", "read": True}
-    # )
-    # book_handler.create(
-    #     body={"title": "'Harry Potter and the Philosopher's Stone", "author": "J. K. Rowling"}
-    # )
-    # book_handler.create(
-    #     body={"title": "Green Eggs and Ham", "author": "Dr. Seuss", "read": True}
-    # )
 
 
 @app.route("/api/books")
